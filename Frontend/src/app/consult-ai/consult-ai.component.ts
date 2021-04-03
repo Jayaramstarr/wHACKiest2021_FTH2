@@ -6,26 +6,20 @@ import { debounceTime, timeout, retry, catchError } from 'rxjs/operators';
 import { Observable, Observer } from 'rxjs';
 import { Router } from '@angular/router';
 
+declare var $: any;
+import * as RecordRTC from 'recordrtc';
+import { DomSanitizer } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-consult-ai',
   templateUrl: './consult-ai.component.html',
   styleUrls: ['./consult-ai.component.scss']
 })
 export class ConsultAiComponent implements OnInit {
-  imagePath;
 
-  imgURL: String[] = [null, null, null];
-  predictionValues = [null, null, null];
-
-  CLOUDINARY_BASE_URL = 'https://api.cloudinary.com/v1_1/dzhqx36hu/upload';
-  CLOUDINARY_UPLOAD_PRESET = 'fpu92ndt';
-  generatedReport = null;
-  predictionURL = "https://skin-canc-detector.herokuapp.com/"
-  isCollapsed = true;
-
-  results = [92, 24];
-  indexToShow = 0;
-  constructor(public globalUserService: GlobalUserServiceService,
+  constructor(
+    private domSanitizer: DomSanitizer,
+    public globalUserService: GlobalUserServiceService,
     private http: HttpClient,
     public snackbar: SnackService,
     public router: Router) { }
@@ -33,92 +27,94 @@ export class ConsultAiComponent implements OnInit {
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("index-page");
     this.globalUserService.setUserDetailsToFromLocalStorage();
-    if (this.globalUserService.results) {
-      this.indexToShow = this.globalUserService.results;
-    }
   }
   ngOnDestroy() {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("index-page");
   }
 
-  preview(files, index) {
-    if (files.length == 1) {
-      const mimeType = files[0].type;
-      if (mimeType.match(/image\/*/) == null) {
-        this.snackbar.openSnackBar('Only images are supported.', 'OKAY');
-        return;
-      }
-      const reader = new FileReader();
-      this.imagePath = files[0];
-      reader.readAsDataURL(files[0]);
-      reader.onload = (_event) => {
-        this.uploadPhoto(this.imagePath, index);
-      };
-    }
-    else {
-      this.snackbar.openSnackBar('Please Upload Only one image at a time!', 'OKAY');
-    }
+  questions =
+    [
+      '1. Talk about any times over the past few months that you’ve been bothered by low feelings, stress? ',
+      '2. Can you tell me about your hopes and dreams for the future? What feelings have you had recently about working towards those goals?',
+      '3. How often during the past 3 months have you felt as though your moods, or your life, were under your control?',
+      '4. How frequently have you been bothered by not being able to stop your worrying?',
+      '5. Tell me about how confident you have been feeling in your capabilities recently?',
+      '6. Let’s talk about how often you have felt satisfied with yourself over the past 12 months.',
+      '7. Let’s discuss how you have been feeling about your relationships recently.',
+      '8. Have you experienced a heart break any time recently?',
+      '9. Talk about your sleeping habits in the past 3 months.',
+      '10. Talk about your most recent experience that was closest to an‘attack’ of fear, anxiety, or panic.'
+    ]
+  index = 0;
+  takeQuiz = false;
+  responses = [];
+  blobs = [];
+  results = [];
+  flask_server_url = "http://52f99e3e4609.ngrok.io/";
+  //this is where the code for the recording is written
+  //Lets declare Record OBJ
+  record;//Will use this flag for toggeling recording
+  recording = false;//URL of Blob
+  url; error;
+  result = false;
+  sanitize(url: string) {
+    return this.domSanitizer.bypassSecurityTrustUrl(url);
   }
-  uploadPhoto(data, index) {
-    let formData = new FormData();
-    formData.append('file', data);
-    formData.append('upload_preset', this.CLOUDINARY_UPLOAD_PRESET);
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded'
-    });
-    this.http.post(this.CLOUDINARY_BASE_URL, formData).pipe(debounceTime(1500), timeout(4000), retry(3), catchError((err) => {
+
+  initiateRecording() {
+    this.recording = true;
+    let mediaConstraints = {
+      video: false,
+      audio: true
+    }; navigator.mediaDevices.getUserMedia(mediaConstraints).then(this.successCallback.bind(this), this.errorCallback.bind(this));
+  }
+  /*
+  * Will be called automatically.  
+  */
+  successCallback(stream) {
+    var options = {
+      mimeType: "audio/wav",
+      numberOfAudioChannels: 2,
+      sampleRate: 44000,
+    };//Start Actuall Recording
+    var StereoAudioRecorder = RecordRTC.StereoAudioRecorder;
+    this.record = new StereoAudioRecorder(stream, options);
+    this.record.record();
+  }
+
+  stopRecording() {
+    this.recording = false;
+    this.record.stop(this.processRecording.bind(this));
+  }
+
+  processRecording(blob) {
+    this.url = URL.createObjectURL(blob);
+    console.log("blob", blob);
+    console.log("url", this.url);
+    this.blobs.push(blob);
+    this.responses.push(this.url);
+  }
+
+  errorCallback(error) {
+    this.error = 'Can not play audio in your browser';
+  }
+
+  sendfile() {
+    var form = new FormData();
+    form.append('file', this.blobs[this.index]);
+    this.http.post(this.flask_server_url, form).pipe(debounceTime(500), timeout(12000), retry(6), catchError((err) => {
       this.snackbar.openSnackBar('Server responded with an error, please try after some time....', 'OKAY');
       throw new Error('Server Timeout' + err);
     })
     ).subscribe((response: any) => {
       console.log(response);
-      this.imgURL[index] = response.url;
-      this.getPrediction(data, index);
-    }, (error: any) => {
-      this.snackbar.openSnackBar('Something went wrong', 'OKAY');
-    });
-  }
-  getPrediction(data, index) {
-    let predicForm = new FormData();
-    predicForm.append('file', data);
-    this.http.post(this.predictionURL, predicForm).pipe(debounceTime(1500), timeout(12000), retry(6), catchError((err) => {
-      this.snackbar.openSnackBar('Server responded with an error, please try after some time....', 'OKAY');
-      throw new Error('Server Timeout' + err);
-    })
-    ).subscribe((response: any) => {
-      if (response.prediction) {
-        this.predictionValues[index] = Math.floor((Number(response.prediction) * 100));
-      }
-      else {
-        this.snackbar.openSnackBar('Something went wrong', 'OKAY');
-      }
+      this.results.push(response);
+      this.index += 1;
+      this.url = "";
     }, (error: any) => {
       this.snackbar.openSnackBar('Something went wrong', 'OKAY');
       console.log(error);
     });
-  }
-  value = 50;
-  generateReport() {
-    var today = new Date();
-    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date + ' ' + time;
-    this.generatedReport = {
-      PatientName: this.globalUserService.username,
-      // PredictionValue: Math.max(...this.predictionValues),
-      PredictionValue: this.results[this.indexToShow],
-      ReportedOn: dateTime,
-    }
-    this.indexToShow = (this.indexToShow + 1) % 2;
-    setTimeout(() => {
-      document.getElementById('postArea').scrollIntoView({ behavior: 'smooth' });
-    }, 1000);
-    console.log('the generated report is', this.generatedReport);
-  }
-  saveReport() {
-    console.log("report to be saved");
-    this.globalUserService.results = this.indexToShow;
-    this.router.navigateByUrl('/getNearbyDocs');
   }
 }
