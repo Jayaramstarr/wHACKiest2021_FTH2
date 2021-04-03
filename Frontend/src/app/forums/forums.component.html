@@ -34,7 +34,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item" >
                         <div class=" dropdown" dropdown>
-                          <button aria-expanded="false" aria-haspopup="true"  class=" btn btn-primary btn-round btn-md dropdown-toggle dropdown-toggle butt" data-toggle="dropdown" dropdownToggle id="dropdownMenuButton" type="button">
+                          <button aria-expanded="false" aria-haspopup="true"  class=" btn btn-primary btn-round btn-md dropdown-toggle dropdown-toggle butt serv" data-toggle="dropdown" dropdownToggle id="dropdownMenuButton" type="button">
                             Services
                           </button>
                           <div aria-labelledby="dropdownMenuButton" class=" dropdown-menu" *dropdownMenu>
@@ -56,7 +56,7 @@
 
 
                     <li class="nav-item" *ngIf="!globalUserService.loggedIn">
-                        <a class="btn btn-primary btn-round btn-lg" id="buttons"
+                        <a class="btn btn-primary btn-round btn-lg serv2" id="buttons"
                             (click)="globalUserService.openLoginRegisterComponent()">
                             Login/Signup
                         </a>
