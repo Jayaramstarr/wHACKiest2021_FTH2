@@ -51,7 +51,7 @@ export class ConsultAiComponent implements OnInit {
   responses = [];
   blobs = [];
   results = [];
-  flask_server_url = "http://81212020440e.ngrok.io/";
+  flask_server_url = "http://09f1d48a4d89.ngrok.io/";
   //this is where the code for the recording is written
   //Lets declare Record OBJ
   record;//Will use this flag for toggeling recording
