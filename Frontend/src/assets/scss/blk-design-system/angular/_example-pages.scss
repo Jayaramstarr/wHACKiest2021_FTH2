@@ -11,3 +11,117 @@
 .footer {
   border-top: 2px solid $danger;
 }
+
+.color-white{
+  color: #fff !important;
+}
+
+#heading{
+  margin-left: 100px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 100px !important;
+  padding: 30px;
+  animation: 3s fadeInAnime infinite;
+}
+
+.btn-primary{
+  background-image: linear-gradient(to bottom right, #00028c,#1597bb);
+  background-size: cover;
+  border: 2px solid #fff;
+  color: #fff !important;
+  &:hover,&:focus{
+    transform: scale(1.1);
+    border: 2px solid #fff;
+    color: #fff !important;
+  }
+}
+
+.dropdown-item{
+  
+  backface-visibility: hidden;
+  &:hover{
+    border-bottom: 2px solid #00028c;
+    background-color: #eee;
+    color: #1597bb !important;
+    font-size: .95rem;
+    backface-visibility: hidden;
+  }
+  
+}
+
+.content{
+  backface-visibility: hidden;
+}
+
+.icon{
+  animation: 4s pulsate infinite;
+}
+
+
+@keyframes fadeInAnime{
+  0%{
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  30%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+  70%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100%{
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulsate{
+  0%{
+    transform: rotate(0deg) scale(1);
+  }
+  30%{
+    transform: rotate(360deg) scale(1.25);
+  }
+  50%{
+    transform: roate(360deg) scale(1.25);
+  }
+  70%{
+    transform: rotate(360deg) scale(1.25);
+  }
+  100%{
+    transform: roatate(0deg) scale(1);
+  }
+}
+
+.mt-20{
+  margin-top: 20px;
+}
+
+.container h1{
+
+  backface-visibility: hidden;
+  transition: all .3s ease-in-out;
+  margin-top: 100px;
+
+  &:hover{
+    transform: scale(1.25) skewY(7deg) skewX(7deg) translateY(50px);
+    margin-left: 50px;
+  }
+}
+
+.step-list__item{
+  h2,p{
+    color: #fff;
+  }
+  .body{
+    color: #fff !important;
+  }
+}
