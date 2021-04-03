@@ -27,32 +27,33 @@
           </div>
         </div>
         <ul class="navbar-nav">
-          <li class="nav-item" >
-          <div class=" dropdown" dropdown>
-            <button aria-expanded="false" aria-haspopup="true"  class=" btn btn-primary btn-round btn-md dropdown-toggle dropdown-toggle" data-toggle="dropdown" dropdownToggle id="dropdownMenuButton" type="button">
-              Services
-            </button>
-            <div aria-labelledby="dropdownMenuButton" class=" dropdown-menu" *dropdownMenu>
-              <a class="dropdown-item" [routerLink]="['/consult-ai']" id="buttons">Consult
-                A.I.
-              </a>
-              <a class="dropdown-item" [routerLink]="['/forums']" id="buttons"> Go to
-                Forums
-              </a>
-           
-              <a class="dropdown-item" [routerLink]="['/chat']" id="buttons"> Go To Chat
-                Assistant
-              </a>
-   
-              <a class="dropdown-item" [routerLink]="['/getNearbyDocs']"
-                id="buttons">Dermitologists Near Me
-              </a>
+          <li class="nav-item">
+            <div class=" dropdown" dropdown>
+              <button aria-expanded="false" aria-haspopup="true"
+                class="btn btn-primary btn-round btn-md dropdown-toggle dropdown-toggle" data-toggle="dropdown"
+                dropdownToggle id="dropdownMenuButton" type="button">
+                Services
+              </button>
+              <div aria-labelledby="dropdownMenuButton" class=" dropdown-menu" *dropdownMenu>
+                <a class="dropdown-item" [routerLink]="['/consult-ai']" id="buttons">Consult
+                  A.I.
+                </a>
+                <a class="dropdown-item" [routerLink]="['/forums']" id="buttons"> Go to
+                  Forums
+                </a>
+
+                <a class="dropdown-item" [routerLink]="['/chat']" id="buttons"> Go To Chat
+                  Assistant
+                </a>
+
+                <a class="dropdown-item" [routerLink]="['/getNearbyDocs']" id="buttons">Dermitologists Near Me
+                </a>
+              </div>
             </div>
-          </div>
-        </li>
-         
-        
-            
+          </li>
+
+
+
           <li class="nav-item" *ngIf="!globalUserService.loggedIn">
             <a id="buttons" class="btn btn-primary btn-round btn-md"
               (click)="globalUserService.openLoginRegisterComponent()">
@@ -83,7 +84,7 @@
     <div class="squares square6"></div>
     <div class="squares square7"></div>
     <div class="section" style="margin-top:3%;">
-      <div class="container middle">
+      <div class="container mt-20">
         <h1>How It Works?</h1>
       </div>
       <img class="path" src="assets/img/path1.png" />
@@ -93,7 +94,7 @@
             <div class="step-list__item__inner">
               <div class="content">
                 <div class="body">
-                  <h2>Upload Your photo</h2>
+                  <h2 class="color-white">Upload Your photo</h2>
                   <p>Upload your photo and get instant consultation from our state of the art A.I.</p>
                 </div>
 
@@ -107,7 +108,7 @@
             <div class="step-list__item__inner">
               <div class="content">
                 <div class="body">
-                  <h2>Find a Doctor Near You Or Schedule a consultation Online</h2>
+                  <h2 class="color-white">Find a Doctor Near You Or Schedule a consultation Online</h2>
                   <p>Enter your Location and find a specialist near your Area, or schedule a online consultation through
                     our platform!!</p>
                 </div>
@@ -121,7 +122,7 @@
             <div class="step-list__item__inner">
               <div class="content">
                 <div class="body">
-                  <h2>Discuss Your results and experience on the discussion forums</h2>
+                  <h2 class="color-white">Discuss Your results and experience on the discussion forums</h2>
                   <p> Our Extensive forums enable you to share your experiences with other people and derive value out
                     of theirs.
                   </p>
@@ -137,7 +138,7 @@
             <div class="step-list__item__inner">
               <div class="content">
                 <div class="body">
-                  <h2>Post Your Feedback and Discuss on Forums</h2>
+                  <h2 class="color-white">Post Your Feedback and Discuss on Forums</h2>
                   <p> After Your Online/Offline consultation discuss your doctors analysis on the forums</p>
                 </div>
                 <div class="icon">
@@ -157,7 +158,7 @@
           <div style="background-color:transparent; width: -webkit-fill-available;height:500px">
             <div class="row" style="width: 100%;">
               <div style="width: 100%" class="middle">
-                <h1 style="text-align: center;margin-top: 4%;">What People Say</h1>
+                <h1 style="text-align: center;margin-top: 4%;">Testimonials</h1>
               </div>
             </div>
             <div style="padding: 4%;padding-top: 0%;width:-webkit-fill-available;">

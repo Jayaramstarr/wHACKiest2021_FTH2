@@ -1,10 +1,13 @@
+<div class="boxx">
+
+
 <ng-container>
     <nav class="navbar navbar-transparent navbar-expand-lg">
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand" placement="bottom" [routerLink]="['/home']" tooltip="Random Tip">
-                    <span id="heading" style="display:inline-block">
-                        discuss@Team Name
+                    <span id="heading" style="display:inline-block ">
+                        Discuss @Team Name
                     </span>
                 </a>
                 <button aria-controls="navigation-index" aria-label="Toggle navigation"
@@ -31,27 +34,27 @@
                 <ul class="navbar-nav">
                     <li class="nav-item" >
                         <div class=" dropdown" dropdown>
-                          <button aria-expanded="false" aria-haspopup="true"  class=" btn btn-primary btn-round btn-md dropdown-toggle dropdown-toggle" data-toggle="dropdown" dropdownToggle id="dropdownMenuButton" type="button">
+                          <button aria-expanded="false" aria-haspopup="true"  class=" btn btn-primary btn-round btn-md dropdown-toggle dropdown-toggle butt" data-toggle="dropdown" dropdownToggle id="dropdownMenuButton" type="button">
                             Services
                           </button>
                           <div aria-labelledby="dropdownMenuButton" class=" dropdown-menu" *dropdownMenu>
                             <a class="dropdown-item" [routerLink]="['/consult-ai']" id="buttons">Consult
                               A.I.
                             </a>
-                            
-                         
+
+
                             <a class="dropdown-item" [routerLink]="['/chat']" id="buttons"> Go To Chat
                               Assistant
                             </a>
-                 
+
                             <a class="dropdown-item" [routerLink]="['/getNearbyDocs']"
                               id="buttons">Dermitologists Near Me
                             </a>
                           </div>
                         </div>
                       </li>
-                       
-                    
+
+
                     <li class="nav-item" *ngIf="!globalUserService.loggedIn">
                         <a class="btn btn-primary btn-round btn-lg" id="buttons"
                             (click)="globalUserService.openLoginRegisterComponent()">
@@ -59,7 +62,7 @@
                         </a>
                     </li>
                     <li class="nav-item" *ngIf="globalUserService.loggedIn">
-                        <a class="btn btn-primary btn-round btn-lg">
+                        <a class="btn btn-primary btn-round btn-lg butt" style="color:white">
                             Hi, Welcome <a style="font-size:15px;font-weight:bold">{{globalUserService.username}}</a> |
                             <img style="width:18px;margin:0 15px 0 15px!important"
                                 src="../../../assets/icons-images/down-arrow.svg" [matMenuTriggerFor]="menu">
@@ -274,7 +277,7 @@
                                     </mat-sidenav>
                                     <mat-sidenav-content>
                                         <a style="position: absolute;
-                                        right:90px" class="titles">All Posts</a>
+                                        right:90px" class="titles" style="color:white">All Posts</a>
                                         <div class="postRow">
                                             <div style="
                                         width: 100%;
@@ -401,3 +404,4 @@
         </div>
     </div>
 </ng-container>
+</div>

@@ -1,6 +1,7 @@
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  
 }
 
 h1,
@@ -199,4 +200,14 @@ hr {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   margin-top: $spacer;
   margin-bottom: $spacer;
+}
+
+
+.container h1{
+  color: #fff;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  text-align: left;
+  margin-left: 25px;
 }

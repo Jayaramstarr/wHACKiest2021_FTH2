@@ -2,7 +2,7 @@
 ::ng-deep .mat-dialog-container{
     padding:0px!important;
     z-index:9999999;
-    background: #1c1e45!important;
+    background: #1597bb!important;
 }
 ::ng-deep .cdk-overlay-dark-backdrop {
     background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
@@ -15,12 +15,17 @@ input{
     background-color: #ffffff;
     border-color: #181418;
   }
-  
+
   .dropdown-menu {
     background-color: #fafafa;
   }
-  
+
   .dropdown-menu .dropdown-item {
     color: #464646;
   }
-  
+  .butt{
+  background-color: #0e49b5;
+  border-color: white;
+  border-width: 3px;
+  color: white;
+}

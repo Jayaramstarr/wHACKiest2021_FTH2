@@ -36,7 +36,7 @@ input:focus, textarea:focus, select:focus{
     margin-top: auto;
     margin-bottom: auto;
     font-weight: bold;
-    color: #2e2a2a;
+    color: white;
     font-style: continuous
   }
   #buttons{
@@ -134,7 +134,7 @@ strong:hover{
     flex: 1 1;
     margin:5px 5px 5px 0px;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.186);
-  
+
   }
   .arrow-div{
     padding:3.5%;
@@ -193,38 +193,38 @@ strong:hover{
     width: 70px;
     text-align: center;
   }
-  
+
   .spinner > div {
     width: 18px;
     height: 18px;
     background-color: #333;
-  
+
     border-radius: 100%;
     display: inline-block;
     -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
     animation: sk-bouncedelay 1.4s infinite ease-in-out both;
   }
-  
+
   .spinner .bounce1 {
     -webkit-animation-delay: -0.32s;
     animation-delay: -0.32s;
   }
-  
+
   .spinner .bounce2 {
     -webkit-animation-delay: -0.16s;
     animation-delay: -0.16s;
   }
-  
+
   @-webkit-keyframes sk-bouncedelay {
     0%, 80%, 100% { -webkit-transform: scale(0) }
     40% { -webkit-transform: scale(1.0) }
   }
-  
+
   @keyframes sk-bouncedelay {
-    0%, 80%, 100% { 
+    0%, 80%, 100% {
       -webkit-transform: scale(0);
       transform: scale(0);
-    } 40% { 
+    } 40% {
       -webkit-transform: scale(1.0);
       transform: scale(1.0);
     }
@@ -237,7 +237,7 @@ strong:hover{
     height: 1.7rem;
     width: 0px;
   }
-  
+
   #content.on {
     -webkit-animation-name: in-out;
     animation-name: in-out;
@@ -248,7 +248,7 @@ strong:hover{
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
   }
-  
+
   .animatedInput {
     box-sizing: border-box;
     width: 26px;
@@ -271,7 +271,7 @@ strong:hover{
     -ms-transform: translate(-100%, -50%);
     transform: translate(-100%, -50%);
   }
-  
+
   .search {
     background: none;
     position: absolute;
@@ -291,7 +291,7 @@ strong:hover{
     -ms-transform: translate(-100%, -50%);
     transform: translate(-100%, -50%);
   }
-  
+
   .search:before {
     content: "";
     position: absolute;
@@ -306,14 +306,14 @@ strong:hover{
     -webkit-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
   }
-  
+
   .close {
     -webkit-transition: 0.4s ease-in-out;
     transition: 0.4s ease-in-out;
     -webkit-transition-delay: 0.4s;
     transition-delay: 0.4s;
   }
-  
+
   .close:before {
     content: "";
     position: absolute;
@@ -328,7 +328,7 @@ strong:hover{
     -webkit-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
   }
-  
+
   .close:after {
     content: "";
     position: absolute;
@@ -342,7 +342,7 @@ strong:hover{
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
   }
-  
+
   .square {
     box-sizing: border-box;
     padding: 0 30px 0 5px;
@@ -366,7 +366,7 @@ strong:hover{
     -ms-transform: translate(-100%, -50%);
     transform: translate(-100%, -50%);
   }
-  
+
 @media only screen and (max-width: 360px){
     #heading{
         font-size:1rem ;
@@ -379,3 +379,12 @@ strong:hover{
         font-style: continuous
     }
   }
+  .boxx{
+    background-color: #1597bb;
+  }
+.butt{
+  background-color: #0e49b5;
+  border-color: white;
+  border-width: 3px;
+  color: white;
+}
