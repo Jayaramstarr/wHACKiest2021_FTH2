@@ -46,13 +46,12 @@ audio {
 
   .PhotoCard{
     background-color: #ececec;
-    height: 100%;
-    width: 100%;
-    padding: 40px;
+    height: 45%;
+    width: 50%;
+    padding: 0 40px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     border-radius: 10px;
 
@@ -163,3 +162,64 @@ color: white;
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+
+  .ai-part{
+    padding: 6px;
+    background-color: #141414;
+    color: rgba(173, 173, 173, 0.863);
+    text-transform: uppercase;
+
+  }
+
+  .section{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .take-quiz{
+    width: 100%;
+    transform: scale(1.25);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px 15px;
+    font-weight: 650;
+
+    &:hover{
+      transform: scale(1.25);
+      box-shadow: 0 0 20px #001b4d;
+    }
+
+  }
+
+  .quiz-question{
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    margin-top: 50px;
+  }
+
+
+  .start-recording,.stop-recording{
+    margin-top: 40px;
+  }
+
+  .stop-recording{
+    background-image: linear-gradient(to bottom right,rgb(247, 96, 76),rgb(143, 18, 1));
+  }
+
+  .quiz-audio{
+    width: 300px;
+    height: 50px;
+    margin-left: -3.5px;
+    margin-top: 40px;
+  }
+
+  .goto-next-question{
+    background-image: linear-gradient(to bottom right,rgb(29, 212, 38),rgb(15, 105, 3));
+    margin-left: 80px;
+    margin-bottom: 33px;
+  }
+
