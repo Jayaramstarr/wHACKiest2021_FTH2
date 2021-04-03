@@ -9,7 +9,7 @@
     margin-top: auto;
     margin-bottom: auto;
     font-weight: bold;
-    color: #2e2a2a;
+    color: white;
     font-style: continuous
   }
   .t-c{
@@ -30,15 +30,15 @@
     background-color: #ffffff;
     border-color: #181418;
   }
-  
+
   .dropdown-menu {
     background-color: #fafafa;
   }
-  
+
   .dropdown-menu .dropdown-item {
     color: #464646;
   }
-  
+
   .PhotoCard{
     background-color: #ececec;
     height: 100%;
@@ -50,7 +50,7 @@
     justify-content: space-between;
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     border-radius: 10px;
-    
+
   }
   .box1{
   width: 100%;
@@ -89,9 +89,13 @@
       padding:9px 32px!important;
       border-radius: 5px!important;
   }
-  
+
   #photoBtn {
       margin: 3px;
+      background-color: #0e49b5;
+border-color: white;
+border-width: 3px;
+color: white;
   }
   .impNote {
       margin: 5px 0px;
@@ -100,7 +104,7 @@
       color: #737373;
       font-size: 0.85rem;
     }
-  
+
     .impNoteMain {
       margin: 0px;
       padding-right: 15px;
@@ -126,4 +130,14 @@
         color: #000000;
         font-style: continuous
     }
+  }
+  .boxx{
+    background-color:#1597bb;
+    height:100%
+  }
+  .butt{
+    background-color: #0e49b5;
+    border-color: white;
+    border-width: 3px;
+    color: white;
   }

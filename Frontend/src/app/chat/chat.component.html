@@ -1,11 +1,14 @@
+
+
 <ng-container>
+  <div class = "boxx">
     <nav class="navbar navbar-transparent fixed-top navbar-expand-lg">
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand" placement="bottom" [routerLink]="['/home']" target="_blank"
                     tooltip="Random Tip">
                     <span id="heading" style="display:inline-block">
-                        ChatAsst@Krunker
+                        Chat Assistant @Krunker
                     </span>
                 </a>
                 <button aria-controls="navigation-index" aria-label="Toggle navigation"
@@ -34,7 +37,7 @@
                     <li class="nav-item">
                         <div class=" dropdown" dropdown>
                             <button aria-expanded="false" aria-haspopup="true"
-                                class=" btn btn-primary btn-round btn-md dropdown-toggle dropdown-toggle"
+                                class=" btn btn-primary btn-round btn-md dropdown-toggle dropdown-toggle butt"
                                 data-toggle="dropdown" dropdownToggle id="dropdownMenuButton" type="button">
                                 Services
                             </button>
@@ -55,13 +58,13 @@
                     </li>
 
                     <li class="nav-item" *ngIf="!globalUserService.loggedIn">
-                        <a id="buttons" class="btn btn-primary btn-round btn-md"
+                        <a id="buttons" style="color:white;" class="btn btn-primary btn-round btn-md butt"
                             (click)="globalUserService.openLoginRegisterComponent()">
                             Login/Signup
                         </a>
                     </li>
                     <li class="nav-item" *ngIf="globalUserService.loggedIn">
-                        <a class="btn btn-primary btn-round btn-lg">
+                        <a class="btn btn-primary btn-round btn-lg butt" style="color:white">
                             Hi, Welcome <a style="font-size:15px;font-weight:bold">{{globalUserService.username}}</a> |
                             <img style="width:18px;margin:0 15px 0 15px!important"
                                 src="../../../assets/icons-images/down-arrow.svg" [matMenuTriggerFor]="menu">
@@ -122,4 +125,5 @@
             </div>
         </div>
     </div>
+  </div>
 </ng-container>

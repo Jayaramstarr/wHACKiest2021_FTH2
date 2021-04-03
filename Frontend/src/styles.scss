@@ -4,7 +4,10 @@
 html, body {
      height : 100%; }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 *:focus{outline: none;}
 .mat-slider-thumb-label {
      padding:3px!important;
@@ -26,7 +29,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
  .timepicker-overlay {
     z-index: 1100 !important;
   }
-  
+
   .timepicker-backdrop-overlay {
     z-index: 1100 !important;
   }
