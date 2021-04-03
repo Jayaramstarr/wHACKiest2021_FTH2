@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { debounceTime, scan } from 'rxjs/operators';
 import { GlobalUserServiceService } from '../global-user-service.service';
@@ -21,12 +22,14 @@ export class GetNearbyDoctorsComponent implements OnInit {
   page = 0;
   maxValOfPageReached = 0;
   nearForm: FormGroup;
+
   constructor(public globalUserService: GlobalUserServiceService,
     private _formBuilder: FormBuilder,
     private http: HttpClient,
     private snackbar: SnackService,
     private breakPointObserver: BreakpointObserver,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,
+    private router: Router) {
     this.nearForm = this._formBuilder.group({
       Address: ['', Validators.required],
       Radius: ['', Validators.required],
@@ -60,6 +63,10 @@ export class GetNearbyDoctorsComponent implements OnInit {
       //this.getCurrentLocationForward();
     });
     this.getOnlineDoctors();
+  }
+
+  openUserProfile() {
+    this.router.navigateByUrl('/userProfile');
   }
   ngAfterViewInit() {
     if (!this.globalUserService.loggedIn) {

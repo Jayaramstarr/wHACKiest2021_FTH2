@@ -99,6 +99,9 @@ export class ConsultAiComponent implements OnInit {
   errorCallback(error) {
     this.error = 'Can not play audio in your browser';
   }
+  openUserProfile() {
+    this.router.navigateByUrl('/userProfile');
+  }
 
   sendfile() {
     var form = new FormData();

@@ -28,6 +28,9 @@ export class VideoChatComponent implements OnInit {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("index-page");
   }
+  openUserProfile() {
+    this.router.navigateByUrl('/userProfile');
+  }
   startCall() {
     this.agoraService.client.join(null, '1000', null, (uid) => {
       this.localStream = this.agoraService.createStream(uid, true, null, null, true, false);
