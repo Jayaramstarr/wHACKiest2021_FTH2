@@ -1,9 +1,14 @@
+audio {
+  filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%)!important;
+  width: 300px;
+  height: 75px;
+}
 #buttons{
     font-family: 'Poppins';
     font-weight:bold;
-  }
+}
   #heading {
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-family: 'Poppins';
     margin-left: 20px;
     margin-top: auto;
@@ -140,4 +145,21 @@ color: white;
     border-color: white;
     border-width: 3px;
     color: white;
+  }
+
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
   }
