@@ -51,7 +51,7 @@ export class ConsultAiComponent implements OnInit {
   responses = [];
   blobs = [];
   results = [];
-  flask_server_url = "http://e5077a856c9a.ngrok.io/";
+  flask_server_url = "http://81212020440e.ngrok.io/";
   //this is where the code for the recording is written
   //Lets declare Record OBJ
   record;//Will use this flag for toggeling recording
@@ -76,7 +76,7 @@ export class ConsultAiComponent implements OnInit {
     var options = {
       mimeType: "audio/wav",
       numberOfAudioChannels: 2,
-      sampleRate: 44000,
+      sampleRate: 44500,
     };//Start Actuall Recording
     var StereoAudioRecorder = RecordRTC.StereoAudioRecorder;
     this.record = new StereoAudioRecorder(stream, options);
@@ -131,13 +131,13 @@ export class ConsultAiComponent implements OnInit {
         temp -= 1;
     }
     if (temp < 2 && temp > -2) {
-      this.final_result = "Consult A Professional, Click Here";
+      this.final_result = "You Great!!! Just Relax and click here!!";
     }
     else if (temp < 5 && temp > -5) {
       this.final_result = "You dont need professional help, try our forums";
     }
     else
-      this.final_result = "You Great!!! Just Relax and click here!!";
+      this.final_result = "Consult A Professional, Click Here";
   }
   redirect() {
     if (this.final_result === "Consult A Professional, Click Here") {

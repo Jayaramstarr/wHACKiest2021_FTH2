@@ -184,7 +184,7 @@
                     </div>
                 </form> -->
                 <div class="PhotoCard" *ngIf="!result">
-                    <div *ngIf="index != 1">
+                    <div *ngIf="index != 10">
                         <div [hidden]="!takeQuiz">
                             <p class="quiz-question">{{questions[index]}}
                             </p>
@@ -211,7 +211,7 @@
                                 Now!</button>
                         </div>
                     </div>
-                    <div *ngIf="index == 1">
+                    <div *ngIf="index == 10">
                         <button class="btn btn-primary"
                             style="cursor: pointer;background-color: green;color: white;font-size: 1.6rem;"
                             (click)="getResult()"> Finish Test and Get Results
