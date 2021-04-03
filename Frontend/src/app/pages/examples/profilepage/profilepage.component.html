@@ -1,9 +1,12 @@
+<div class="whole">
+
+
 <nav class="navbar navbar-transparent fixed-top navbar-expand-lg">
   <div class="container">
     <div class="navbar-translate">
       <a class="navbar-brand" placement="bottom" [routerLink]="['/home']" target="_blank">
         <span id="heading" style="display:inline-block">
-          my profile@Krunker
+          MY PROFILE @Krunker
         </span>
       </a>
       <button aria-controls="navigation-index" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler"
@@ -178,17 +181,17 @@
               <img class="img-center img-fluid rounded-circle"
                 src="https://www.pngitem.com/pimgs/m/168-1689599_male-user-filled-icon-user-icon-100-x.png" />
 
-              <h4 class="title special-font" style="font-size: 30px;">{{globalUserService.username}}</h4>
+              <h4 class="title special-font boxx" style="font-size: 30px;">{{globalUserService.username}}</h4>
             </div>
             <div class="card-body special-font"
               style="display: flex; align-items: center; justify-content: center; flex-direction: column; margin-top: -10px; margin-bottom: 10px;">
-              <div style="padding: 8px">
-                member for :&nbsp;{{setAgo(globalUserService.userObj.created)}}&nbsp;Days
+              <div style="padding: 8px" class = "boxx">
+                Member since :&nbsp;{{setAgo(globalUserService.userObj.created)}}&nbsp;Days
               </div>
-              <div style="padding: 8px">
+              <div style="padding: 8px" class = "boxx">
                 {{globalUserService.userObj.email}}
               </div>
-              <div style="padding: 8px">
+              <div style="padding: 8px" class = "boxx">
                 Info
               </div>
 
@@ -198,4 +201,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

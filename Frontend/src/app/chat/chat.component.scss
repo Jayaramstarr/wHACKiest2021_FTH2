@@ -13,15 +13,15 @@
     background-color: #ffffff;
     border-color: #181418;
   }
-  
+
   .dropdown-menu {
     background-color: #fafafa;
   }
-  
+
   .dropdown-menu .dropdown-item {
     color: #464646;
   }
-  
+
 .messages{
   display: flex;
   flex-direction:row;
@@ -87,4 +87,13 @@
         color: #000000;
         font-style: continuous
     }
+  }
+  .boxx{
+    background-color: #1597bb;
+  }
+  .butt{
+    background-color: #0e49b5;
+    border-color: white;
+    border-width: 3px;
+    color: white;
   }
