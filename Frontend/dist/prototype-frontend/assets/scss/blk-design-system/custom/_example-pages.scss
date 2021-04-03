@@ -1,5 +1,7 @@
 // style for the landing page
 .index-page {
+
+
   overflow-x:hidden!important;
   .page-header {
     height: 100vh;
@@ -37,6 +39,7 @@
     transition: 0.4s ease-out;
     overflow: hidden;
     border-radius: 20%;
+    background-size: cover;
     &.square1 {
       animation: move-left-right 4s infinite;
       height: 300px;
@@ -44,6 +47,8 @@
       opacity: 0.3;
       left: 3%;
       top: -21%;
+      background-size: cover;
+      background-image: url("https://img.collegedekhocdn.com/media/img/careers/doctor-clinic.jpg");
     }
 
     &.square2 {
@@ -53,6 +58,8 @@
       opacity: 0.4;
       right: 1%;
       top: -12%;
+      background-size: cover;
+      background-image: url("https://previews.123rf.com/images/matoommi/matoommi1607/matoommi160700014/60339450-doctor-and-nurse-people-occupation-physician-hospital-checkup-patient-healthy-treatment-personnel.jpg");
     }
 
     &.square3 {
@@ -61,7 +68,9 @@
       width: 200px;
       opacity: 0.1;
       left: 1%;
-      bottom: 0%;
+      bottom: 0%;      
+      background-size: cover;
+      background-image: url("https://images.newindianexpress.com/uploads/user/imagelibrary/2020/5/17/w900X450/Doctor_Never_too.jpg");
     }
 
     &.square4 {
@@ -70,7 +79,9 @@
       width: 100px;
       opacity: 0.4;
       right: 27%;
-      top: 70%;
+      top: 70%;      
+      background-size: cover;
+      background-image: url("https://image.freepik.com/free-vector/psychotherapy-psychology-concept-illustration-cartoon-doctor-therapist-character-protecting-patient-mental-health-white_213110-444.jpg");
     }
 
     &.square5 {
@@ -79,7 +90,9 @@
       width: 250px;
       opacity: 0.25;
       left: 32%;
-      bottom: 29%;
+      bottom: 29%;      
+      background-size: cover;
+      background-image: url("https://static.vecteezy.com/system/resources/previews/000/341/499/original/doctor-caring-brain-character-for-mental-health-vector-illustration.png");
     }
 
     &.square6 {
@@ -88,7 +101,9 @@
       top: 35%;
       height: 80px;
       width: 80px;
-      opacity: 0.4;
+      opacity: 0.4;      
+      background-size: cover;
+      background-image: url("https://thumbs.dreamstime.com/z/doctor-psychiatrist-help-teenager-patient-vector-illustration-psychology-therapy-cartoon-guy-mental-health-depression-care-181610599.jpg");
     }
 
     &.square7 {
@@ -97,7 +112,9 @@
       height: 300px;
       right: 0%;
       bottom: 0%;
-      opacity: 0.25;
+      opacity: 0.25;      
+      background-size: cover;
+      background-image: url("https://previews.123rf.com/images/yupiramos/yupiramos1806/yupiramos180600920/102261973-doctor-human-brain-pills-mental-health-care-vector-illustration.jpg");
     }
   }
 }
@@ -555,8 +572,8 @@
 .landing-page,
 .profile-page,
 .register-page {
-  background-image: url("../../assets/img/dots.png");
-  background-size: contain;
+  background-image: linear-gradient(to bottom right, rgba( #1597bb,.65),rgba(#00028c,.65));
+  background-size: cover;
 }
 
 @include media-breakpoint-down(md) {
