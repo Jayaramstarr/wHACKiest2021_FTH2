@@ -9,7 +9,7 @@
                         <span id="heading" style="display:inline-block ">
                             Discuss@ProHealer
                         </span>
-                    </a>
+                     </a>
                     <button aria-controls="navigation-index" aria-label="Toggle navigation"
                         class="navbar-toggler navbar-toggler" [attr.aria-expanded]="!isCollapsed"
                         (click)="isCollapsed = !isCollapsed" id="navigation" type="button">
@@ -39,17 +39,17 @@
                                     data-toggle="dropdown" dropdownToggle id="dropdownMenuButton" type="button">
                                     Services
                                 </button>
-                                <div aria-labelledby="dropdownMenuButton" class=" dropdown-menu" *dropdownMenu>
-                                    <a class="dropdown-item" [routerLink]="['/consult-ai']" id="buttons">Consult
+                                <div aria-labelledby="dropdownMenuButton" class="dropdown-menu serv3" *dropdownMenu>
+                                    <a class="dropdown-item " [routerLink]="['/consult-ai']" id="buttons">Consult
                                         A.I.
                                     </a>
 
 
-                                    <a class="dropdown-item" [routerLink]="['/chat']" id="buttons"> Go To Chat
+                                    <a class="dropdown-item " [routerLink]="['/chat']" id="buttons"> Go To Chat
                                         Assistant
                                     </a>
 
-                                    <a class="dropdown-item" [routerLink]="['/getNearbyDocs']"
+                                    <a class="dropdown-item " [routerLink]="['/getNearbyDocs']"
                                         id="buttons">Psychiatrists Near Me
                                     </a>
                                 </div>
