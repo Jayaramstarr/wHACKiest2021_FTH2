@@ -8,8 +8,8 @@
                 <div class="navbar-translate">
                     <a class="navbar-brand" placement="bottom" [routerLink]="['/home']" target="_blank"
                         tooltip="Random Tip">
-                        <span id="heading" style="display:inline-block">
-                            ConsultAI
+                        <span id="heading" style="display:inline-block; border: 2px solid #000;">
+                            Consult&nbsp;<span class="ai-part">AI</span> 
                         </span>
                     </a>
                     <button aria-controls="navigation-index" aria-label="Toggle navigation"
@@ -88,7 +88,7 @@
             <div class="squares square5"></div>
             <div class="squares square6"></div>
             <div class="squares square7"></div>
-            <div class="section" style="margin:8% 25% auto 25%;height:100%;">
+            <div class="section">
                 <!-- <form>
                     <mat-card class="matPhotoCard">
                         <div class="box1">
@@ -183,63 +183,56 @@
                     <div style="height:20px;">
                     </div>
                 </form> -->
-                <div>
-                    <div class="PhotoCard" *ngIf="!result">
-                        <div style="text-align:center;margin-top: 200px;" *ngIf="index != 2">
-                            <div [hidden]="!takeQuiz">
-                                <p style="font-size:1.6rem; font-weight:500; line-height: 1.2rem;">{{questions[index]}}
-                                </p>
-                                <button (click)="initiateRecording()" class="btn btn-primary" *ngIf="!recording && !url"
-                                    style="cursor: pointer;background-color: green;color: white;font-size: 1.6rem;">
-                                    Start
-                                    Recording
-                                </button>
-                                <button (click)="stopRecording()" class="btn btn-danger" *ngIf="recording && !url"
-                                    style="cursor: pointer;background-color: red;color: white;font-size: 1.6rem;"> Stop
-                                    Recording
-                                </button>
-                                <audio controls="" *ngIf="!recording && url">
-                                    <source [src]="sanitize(url)" type="audio/wav">
-                                </audio>
-                                <button (click)="sendfile()" class="btn btn-success" *ngIf="!recording && url"
-                                    style="cursor: pointer;background-color: green!important;color: white;font-size: 1.3rem;">
-                                    Go To next
-                                    Question
-                                </button>
-                            </div>
-                            <div [hidden]="takeQuiz">
-                                <button class="btn btn-primary"
-                                    style="cursor: pointer;background-color: green;color: white;font-size: 1.6rem;"
-                                    (click)="takeQuiz=!takeQuiz"> Take Our
-                                    A.I.Powered Quiz
-                                </button>
-                            </div>
-                        </div>
-                        <div style="text-align:center;margin-top: 200px;" *ngIf="index == 2">
-                            <button class="btn btn-primary"
-                                style="cursor: pointer;background-color: green;color: white;font-size: 1.6rem;"
-                                (click)="result=!result"> Finish Test and Get Results
-
+                <div class="PhotoCard" *ngIf="!result">
+                    <div *ngIf="index != 2">
+                        <div [hidden]="!takeQuiz">
+                            <p class="quiz-question">{{questions[index]}}
+                            </p>
+                            <button (click)="initiateRecording()" class="btn btn-primary start-recording" *ngIf="!recording && !url">
+                                Start
+                                Recording
+                            </button>
+                            <button (click)="stopRecording()" class="btn btn-danger" *ngIf="recording && !url"
+                                class="btn btn-primary stop-recording" > Stop
+                                Recording
+                            </button>
+                            <audio class="quiz-audio" controls="" *ngIf="!recording && url">
+                                <source [src]="sanitize(url)" type="audio/wav">
+                            </audio>
+                            <button (click)="sendfile()" class="btn btn-success" *ngIf="!recording && url"
+                            class="btn btn-primary goto-next-question">
+                                Go To next
+                                Question
                             </button>
                         </div>
+                        <div [hidden]="takeQuiz">
+                            <button class="take-quiz btn btn-primary" (click)="takeQuiz=!takeQuiz">Take Quiz Now!</button>
+                        </div>
                     </div>
-                    <div class="PhotoCard" *ngIf="result">
-                        <h3 style="text-align:center">Results</h3>
-                        <table>
-                            <tr>
-                                <th>Question</th>
-                                <th>Your Response</th>
-                                <th>Emotion/Mood detected by A.I.</th>
-                            </tr>
-                            <tr *ngFor="let res of responses;let i = index">
-                                <td>{{questions[i]}}</td>
-                                <td><audio controls="">
-                                        <source [src]="sanitize(res)" type="audio/wav">
-                                    </audio></td>
-                                <td>{{results[i]}}</td>
-                            </tr>
-                        </table>
+                    <div *ngIf="index == 2">
+                        <button class="btn btn-primary"
+                            style="cursor: pointer;background-color: green;color: white;font-size: 1.6rem;"
+                            (click)="result=!result"> Finish Test and Get Results
+
+                        </button>
                     </div>
+                </div>
+                <div class="PhotoCard" *ngIf="result">
+                    <h3 style="text-align:center">Results</h3>
+                    <table>
+                        <tr>
+                            <th>Question</th>
+                            <th>Your Response</th>
+                            <th>Emotion/Mood detected by A.I.</th>
+                        </tr>
+                        <tr *ngFor="let res of responses;let i = index">
+                            <td>{{questions[i]}}</td>
+                            <td><audio controls="">
+                                    <source [src]="sanitize(res)" type="audio/wav">
+                                </audio></td>
+                            <td>{{results[i]}}</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
