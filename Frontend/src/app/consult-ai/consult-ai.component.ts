@@ -51,7 +51,7 @@ export class ConsultAiComponent implements OnInit {
   responses = [];
   blobs = [];
   results = [];
-  flask_server_url = "http://52b3fc589def.ngrok.io/";
+  flask_server_url = "http://e5077a856c9a.ngrok.io/";
   //this is where the code for the recording is written
   //Lets declare Record OBJ
   record;//Will use this flag for toggeling recording
@@ -116,5 +116,38 @@ export class ConsultAiComponent implements OnInit {
       this.snackbar.openSnackBar('Something went wrong', 'OKAY');
       console.log(error);
     });
+  }
+  final_result = "";
+  getResult() {
+    this.result = !this.result;
+    let temp = 0;
+    for (let i = 0; i < this.results.length; i++) {
+      if (this.results[i] === "sad" || this.results[i] === "sad" || this.results[i] === "sad")
+        temp += 1;
+      else
+        temp -= 1;
+    }
+    if (temp < 2 && temp > -2) {
+      this.final_result = "Consult A Professional, Click Here";
+    }
+    else if (temp < 5 && temp > -5) {
+      this.final_result = "You dont need professional help, try our forums";
+    }
+    else
+      this.final_result = "You Great!!! Just Relax and click here!!";
+  }
+  redirect() {
+    if (this.final_result === "Consult A Professional, Click Here") {
+      this.router.navigateByUrl('/getNearbyDocs');
+      this.snackbar.openSnackBar('Taking You to Psychiatrists Near You', 'OKAY')
+    }
+    else if (this.final_result === "You dont need professional help, try our forums") {
+      this.router.navigateByUrl('/forums');
+      this.snackbar.openSnackBar('Taking You to Psychiatrists Near You', 'OKAY')
+    }
+    else {
+      window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+      this.snackbar.openSnackBar('You got RICK-ROLLED', 'OKAY')
+    }
   }
 }
